@@ -1,22 +1,31 @@
+@font-face {
+      font-family: 'Glacial Indifference';
+      src: url('font/GlacialIndifference-Bold.otf') format('otf'),
+           url('font/GlacialIndifference-Italic.otf') format('otf'),
+           url('font/GlacialIndifference-Regular.otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+@import url('https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap');
 body {
-  font-family: Arial, sans-serif;
+      font-family: 'Glacial Indifference',!important;
   margin: 0;
   padding: 0;
   background-color: #fff;
   color: #333;
 }
 .heading{
+  font-family: 'Glacial Indifference', Arial, sans-serif !important;
     padding: 1rem;
     text-align: center;
     background-color: #f8f8f8;
     border-bottom: 1px solid #fff;
-    font-family: 'Glacial Indifference';
-}
 
+}
 .header {
   text-align: center;
   padding: 150px;
-  background-image: url('IMG_4428.JPG'); /* Replace with your desired image URL */
+  background-image: url('IMG_6500.PNG'); /* Replace with your desired image URL */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -38,7 +47,6 @@ body {
 .header p {
   margin-bottom: 1rem;
   font-size: 30px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header button {
@@ -55,17 +63,20 @@ main {
   padding: 2rem;
 }
 
+  .product-image-wrapper:hover .main-img {
+        opacity: 0;
+      }
+      .product-image-wrapper:hover .hover-img {
+        opacity: 1;
+      }
 .collection-heading{
-  font-family: 'Playfair Display', serif;
         font-size: 2.2rem;
         font-weight: 600;
         color: #ef629f;
         margin-bottom: 2.5rem;
         letter-spacing: 0.12em;
-        border-bottom: 2px solid #ef629f;
         display: inline-block;
         padding-bottom: 0.4em;
-        background: linear-gradient(90deg, #fff 60%, #fceabb 100%);
         border-radius: 0 0 18px 0;
         box-shadow: 0 2px 8px rgba(239,98,159,0.07);
 }
@@ -74,7 +85,7 @@ h2 {
   margin: 2rem 0 1rem;
 }
 
-.product-grid {
+/* .product-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -101,7 +112,68 @@ h2 {
   color: white;
   border: none;
   cursor: pointer;
-}
+} */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 30px;
+    justify-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+    .product-card {
+      width: 250px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      display: block;
+      transition: opacity 0.5s ease;
+    }
+
+    .sold-out {
+      background: #826251;
+      color: #fff;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .product-title {
+      font-weight: bold;
+      margin-top: 1;
+      font-size: 16px;
+    }
+
+    .product-price {
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 768px) {
+      .product-card {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
 
 .footer {
   background-color: #f1f1f1;
@@ -117,7 +189,6 @@ h2 {
   text-decoration: none;
 }
 .nameatbottom{
-    font-family: 'glacial indifference';
     font-size: 40px;
     margin-top: 20px;
     color: white
@@ -167,6 +238,16 @@ h2 {
 
       h2 {
         font-size: 1.2rem;
+      }
+      .single-cta {
+        margin-bottom: 20px;
+      }
+      .footer-social-icon{
+        margin-bottom: 20px;
+      }
+      .footer-widget{
+
+        margin-bottom: 10px;
       }
     }
 /* footer */
@@ -232,7 +313,6 @@ ul {
   display: block;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
 .footer-social-icon a {
@@ -331,4 +411,48 @@ ul {
 .footer-menu li a {
   font-size: 14px;
   color: #878787;
+}
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.product-card-link:focus .product-card,
+.product-card-link:hover .product-card {
+  box-shadow: 0 12px 32px rgba(180,140,60,0.13);
+  transform: translateY(-8px) scale(1.03);
+  border-color: #e7cfa2;
+  background: #faf6ef;
+}
+
+.product-card-link:hover .product-card {
+  border: 2px solid #b48c3c;
+}
+.shop-now-btn {
+  background: linear-gradient(90deg, #3a2c0e 0%, #826251 100%);
+  color: #fffbe6 !important;
+  border: none;
+  border-radius: 24px;
+  font-family: 'Glacial Indifference', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  padding: 0.75rem 2.2rem;
+  box-shadow: 0 2px 12px rgba(54,40,13,0.09);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+.shop-now-btn:hover,
+.shop-now-btn:focus {
+  background: linear-gradient(90deg, #826251 0%, #3a2c0e 100%);
+  color: #fffbe6 !important;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(54,40,13,0.13);
 }
