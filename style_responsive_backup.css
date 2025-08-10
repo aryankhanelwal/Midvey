@@ -1,19 +1,12 @@
-/* Local font face declarations with proper formats and paths */
 @font-face {
-    font-family: 'Glacial Indifference';
-    src: url('./Font/GlacialIndifference-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Glacial Indifference';
-    src: url('./Font/GlacialIndifference-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+      font-family: 'Glacial Indifference';
+      src: url('font/GlacialIndifference-Bold.otf') format('otf'),
+           url('font/GlacialIndifference-Italic.otf') format('otf'),
+           url('font/GlacialIndifference-Regular.otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+@import url('https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap');
 body {
       font-family: 'Glacial Indifference',!important;
   margin: 0;
@@ -25,29 +18,23 @@ body {
   font-family: 'Glacial Indifference', Arial, sans-serif !important;
     padding: 1rem;
     text-align: center;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #fff;
-
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 20px;
 }
 
-.heading h1 {
-    font-weight: 700;
-}
 .header {
   text-align: center;
   padding: 150px 20px;
-  background-image: url('IMG_6500.PNG');
+  background-image: url('IMG_6500.PNG'); /* Replace with your desired image URL */
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-position: center;
   position: relative;
   color: white;
   min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .header-overlay {
@@ -78,25 +65,36 @@ body {
 }
 
 main {
-  padding: 2rem;
+  padding: 2.5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-  .product-image-wrapper:hover .main-img {
-        opacity: 0;
-      }
+.product-grid {
+  margin-top: 2rem;
+}
+
+.product-image-wrapper:hover .main-img {
+  opacity: 0;
+}
       .product-image-wrapper:hover .hover-img {
         opacity: 1;
       }
+.collection-header {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
 .collection-heading{
-        font-size: 2.2rem;
-        font-weight: 600;
-        color: #ef629f;
-        margin-bottom: 2.5rem;
-        letter-spacing: 0.12em;
-        display: inline-block;
-        padding-bottom: 0.4em;
-        border-radius: 0 0 18px 0;
-        box-shadow: 0 2px 8px rgba(239,98,159,0.07);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #b48c3c;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.12em;
+  display: inline-block;
+  padding-bottom: 0.4em;
+  border-radius: 0 0 18px 0;
+  box-shadow: 0 2px 8px rgba(180,140,60,0.07);
 }
 h2 {
   text-align: center;
@@ -133,11 +131,12 @@ h2 {
 } */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     justify-items: center;
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 
     .product-card {
@@ -197,23 +196,52 @@ h2 {
       margin-top: 4px;
     }
 
-    /* Responsive for small screens */
+    /* Responsive for tablets and small screens */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 0 15px;
+      }
+      
+      .header {
+        padding: 100px 15px;
+        min-height: 50vh;
+      }
+      
+      main {
+        padding: 1.5rem 0.75rem;
+      }
+    }
+    
     @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+      }
+      
       .product-card {
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
+      }
+      
+      .header {
+        padding: 80px 10px;
+        min-height: 45vh;
       }
     }
 
 .footer {
   background-color: #f1f1f1;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
 }
 
 .footer a {
-  display: block;
+  display: inline-block;
+  margin: 0 10px;
   margin-top: 0.5rem;
   color: #0077cc;
   text-decoration: none;
@@ -223,98 +251,147 @@ h2 {
     margin-top: 20px;
     color: white
 }
-/* Tablet and below */
-@media (max-width: 1024px) {
-  .header {
-    padding: 120px 15px;
-    min-height: 50vh;
-    background-position: center center;
-  }
-}
+ @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
 
-/* Mobile devices */
-@media (max-width: 768px) {
-  .header {
-    padding: 80px 15px;
-    min-height: 45vh;
-    background-position: center center;
-    background-size: cover;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
+      .header p {
+        font-size: 1rem;
+      }
 
-  .header p {
-    font-size: 1rem;
-  }
+      .header-overlay {
+        padding: 1.5rem;
+      }
 
-  .header-overlay {
-    padding: 1.5rem;
-  }
+      .header button {
+        padding: 0.5rem 1rem;
+      }
 
-  .header button {
-    padding: 0.5rem 1rem;
-  }
+      .product-card {
+        width: 90%;
+      }
+      
+      .collection-header {
+        text-align: center;
+      }
+      
+      .collection-heading {
+        font-size: 1.8rem;
+      }
+      
+      .shop-now-btn {
+        font-size: 1rem;
+        padding: 0.65rem 1.8rem;
+      }
+    }
 
-  .product-card {
-    width: 90%;
-  }
-}
+    @media (max-width: 480px) {
+      .header {
+        padding: 60px 5px;
+        min-height: 40vh;
+      }
 
-/* Small mobile devices */
-@media (max-width: 480px) {
-  .header {
-    padding: 60px 10px;
-    min-height: 40vh;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: scroll;
-  }
+      .header h1 {
+        font-size: 1.5rem;
+      }
 
-  .header h1 {
-    font-size: 1.5rem;
-  }
+      .header p {
+        font-size: 0.9rem;
+      }
 
-  .header p {
-    font-size: 0.9rem;
-  }
+      .header button {
+        font-size: 0.9rem;
+      }
 
-  .header button {
-    font-size: 0.9rem;
-  }
+      main {
+        padding: 1rem 0.5rem;
+      }
 
-  main {
-    padding: 1rem;
-  }
+      h2 {
+        font-size: 1.2rem;
+      }
+      
+      .product-grid {
+        gap: 15px;
+        padding: 0 5px;
+      }
+      
+      .product-card {
+        max-width: 280px;
+      }
+      
+      .collection-header {
+        text-align: center;
+      }
+      
+      .collection-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
 
-  h2 {
-    font-size: 1.2rem;
-  }
-  .single-cta {
-    margin-bottom: 20px;
-  }
-  .footer-social-icon{
-    margin-bottom: 20px;
-  }
-  .footer-widget{
-    margin-bottom: 10px;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-  .header {
-    padding: 40px 8px;
-    min-height: 35vh;
-    background-position: center center;
-    background-size: cover;
-  }
-  
-  .header h1 {
-    font-size: 1.3rem;
-  }
-}
+      .shop-now-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+        margin: 0 auto;
+        display: block;
+      }
+      
+      .single-cta {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      
+      .footer-social-icon{
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      
+      .footer-widget{
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      
+      .cta-text {
+        padding-left: 0;
+        text-align: center;
+      }
+      
+      .single-cta i {
+        float: none;
+        display: block;
+        margin: 0 auto 10px;
+      }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 360px) {
+      .header {
+        padding: 40px 5px;
+        min-height: 35vh;
+      }
+      
+      .product-card {
+        max-width: 250px;
+      }
+      
+      .shop-now-btn {
+        font-size: 0.85rem;
+        padding: 0.55rem 1.2rem;
+      }
+      
+      .collection-header {
+        text-align: center;
+      }
+      
+      .collection-heading {
+        font-size: 1.3rem;
+      }
+      
+      .footer-content {
+        padding: 20px 0;
+      }
+    }
 /* footer */
 
 
@@ -521,3 +598,4 @@ ul {
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 6px 24px rgba(54,40,13,0.13);
 }
+
