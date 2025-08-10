@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Midvey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Midvey - Premium Clothing Collection</title>
   
   <!-- Preload critical fonts for better performance -->
   <link rel="preload" href="./Font/GlacialIndifference-Bold.otf" as="font" type="font/otf" crossorigin>
@@ -55,7 +55,7 @@
               <img src="Cloths/product1/001.jpg" alt="Midnight Shirt" class="main-img" />
             </div>
             <div class="sold-out">Fresh Arrival</div>
-            <div class="product-title">Lounge Shirt</div>
+            <div class="product-title">Wabi</div>
             <div class="product-price">Rs. 1,599.00</div>
           </div>
         </a>
@@ -67,7 +67,7 @@
               <img src="Cloths/highres images/024.jpg" alt="Midnight Shirt" class="main-img" />
             </div>
             <div class="sold-out">Fresh Arrival</div>
-            <div class="product-title">Tide Shirt</div>
+            <div class="product-title">Tide</div>
             <div class="product-price">Rs. 1,599.00</div>
           </div>
         </a>
@@ -79,7 +79,7 @@
               <img src="Cloths/product2/005.jpg" alt="Midnight Shirt" class="main-img" />
             </div>
             <div class="sold-out">Fresh Arrival</div>
-            <div class="product-title">Mocha Shirt</div>
+            <div class="product-title">Mocha</div>
             <div class="product-price">Rs. 3,299.00</div>
           </div>
         </a>
@@ -91,7 +91,7 @@
               <img src="Cloths/product3/013.jpg" alt="Midnight Shirt" class="main-img" />
             </div>
             <div class="sold-out">Fresh Arrival</div>
-            <div class="product-title">Stride Shirt</div>
+            <div class="product-title">Soho</div>
             <div class="product-price">Rs. 1,499.00</div>
           </div>
         </a>
@@ -103,7 +103,7 @@
               <img src="Cloths/product4/019.jpg" alt="Midnight Shirt" class="main-img" />
             </div>
             <div class="sold-out">Fresh Arrival</div>
-            <div class="product-title">Midnight Shirt</div>
+            <div class="product-title">Nero</div>
             <div class="product-price">Rs. 1,999.00</div>
           </div>
         </a>
@@ -120,12 +120,12 @@
                         <div class="single-cta">
                             <i class="fas fa-map-marker-alt"></i>
                             <div class="cta-text">
-                              <h4>Find us</h4>
-                              <span>
-                                <a href="https://maps.google.com/?q=Krishna+Nagar,+Delhi" target="_blank" style="color:inherit;text-decoration:none;">
-                                  Krishna Nagar, Delhi
-                                </a>
-                              </span>
+                                <h4>Find us</h4>
+                                <span>
+                                  <a href="https://maps.google.com/?q=Krishna+Nagar,+Delhi" target="_blank" class="contact-link">
+                                    Krishna Nagar, Delhi
+                                  </a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -133,12 +133,12 @@
                         <div class="single-cta">
                             <i class="fas fa-phone"></i>
                             <div class="cta-text">
-                              <h4>Call us</h4>
-                              <span>
-                                <a href="tel:+917678319278" style="color:inherit;text-decoration:none;">
-                                  +91-7678319278
-                                </a>
-                              </span>
+                                <h4>Call us</h4>
+                                <span>
+                                  <a href="tel:+917678319278" class="contact-link">
+                                    +91-7678319278
+                                  </a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -146,12 +146,12 @@
                         <div class="single-cta">
                             <i class="far fa-envelope-open"></i>
                             <div class="cta-text">
-                              <h4>Mail us</h4>
-                              <span>
-                                <a href="mailto:shopmidvey@gmail.com" style="color:inherit;text-decoration:none;">
-                                  shopmidvey@gmail.com
-                                </a>
-                              </span>
+                                <h4>Mail us</h4>
+                                <span>
+                                  <a href="mailto:shopmidvey@gmail.com" class="contact-link">
+                                    shopmidvey@gmail.com
+                                  </a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -192,10 +192,11 @@ Because dressing up should feel like showing up as you.</p>
                           <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
                         </div>
                         <div class="subscribe-form">
-                          <form action="#">
-                            <input type="text" placeholder="Email Address">
-                            <button><i class="fab fa-telegram-plane"></i></button>
+                          <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+                            <input type="email" id="emailInput" placeholder="Email Address" required>
+                            <button type="submit" id="subscribeBtn"><i class="fab fa-telegram-plane"></i></button>
                           </form>
+                          <div id="subscribeMessage" class="subscribe-message"></div>
                         </div>
                       </div>
                     </div>
