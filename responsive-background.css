@@ -72,7 +72,6 @@
   /* Ensure full image is visible without cropping */
   .header {
     background-size: contain; /* Shows full image */
-    background-color: #667eea; /* Fallback color to fill empty space */
   }
   
   /* Alternative: Use cover but adjust position to show important parts */

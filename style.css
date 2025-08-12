@@ -70,7 +70,6 @@ body {
     /* Show full image without cropping */
     background-size: contain;
     background-position: center center;
-    background-color: #667eea;
     background-attachment: scroll;
   }
   
@@ -86,7 +85,6 @@ body {
     /* Ensure full image is visible on small screens */
     background-size: contain;
     background-position: center center;
-    background-color: #667eea;
     min-height: 50vh;
   }
   
