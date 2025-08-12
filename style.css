@@ -63,9 +63,6 @@ body {
 }
 
 /* Loading state with placeholder gradient */
-.header.loading {
-  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
 
 /* Image optimization for different screen sizes */
 @media (max-width: 768px) {
