@@ -50,6 +50,55 @@ body {
   overflow: hidden;
 }
 
+/* Preload hint for background image */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  z-index: -2;
+}
+
+/* Loading state with placeholder gradient */
+.header.loading {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Image optimization for different screen sizes */
+@media (max-width: 768px) {
+  .header {
+    /* Show full image without cropping */
+    background-size: contain;
+    background-position: center center;
+    background-color: #667eea;
+    background-attachment: scroll;
+  }
+  
+  /* Alternative: if you prefer cover with better positioning */
+  .header.use-cover {
+    background-size: cover;
+    background-position: center 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    /* Ensure full image is visible on small screens */
+    background-size: contain;
+    background-position: center center;
+    background-color: #667eea;
+    min-height: 50vh;
+  }
+  
+  .header.use-cover {
+    background-size: cover;
+    background-position: center 25%;
+  }
+}
+
 .header-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 2rem;

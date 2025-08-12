@@ -1,0 +1,110 @@
+/* 
+  Responsive Background Images for Midvey
+  =======================================
+  
+  This CSS provides optimized background images for different screen sizes.
+  Replace the URLs with your optimized image versions once created.
+*/
+
+/* Default/Desktop background - Use after optimizing to ~1MB */
+.header {
+  background-image: url('IMG_6699_desktop.jpg'); /* Replace with optimized desktop version */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .header {
+    background-image: url('IMG_6699_mobile.jpg'); /* Replace with optimized mobile version */
+    background-size: cover;
+    background-position: center center;
+    /* Ensure the full image is visible on mobile */
+    background-attachment: scroll;
+    min-height: 50vh;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+  .header {
+    background-size: cover;
+    background-position: center top;
+    /* Show more of the top portion on small screens */
+    min-height: 45vh;
+  }
+}
+
+/* WebP support for modern browsers (even better compression) */
+@supports (background-image: url('test.webp')) {
+  .header {
+    background-image: url('IMG_6699_desktop.webp'); /* WebP version for desktop */
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      background-image: url('IMG_6699_mobile.webp'); /* WebP version for mobile */
+    }
+  }
+}
+
+/* Loading state improvements */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: -2;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.header.loaded::before {
+  opacity: 0;
+}
+
+/* Additional mobile optimizations for image display */
+@media (max-width: 768px) {
+  /* Ensure full image is visible without cropping */
+  .header {
+    background-size: contain; /* Shows full image */
+    background-color: #667eea; /* Fallback color to fill empty space */
+  }
+  
+  /* Alternative: Use cover but adjust position to show important parts */
+  .header.use-cover {
+    background-size: cover;
+    background-position: center 20%; /* Adjust this value to show the right part of your image */
+  }
+}
+
+/* Ultra-wide mobile screens (landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+  .header {
+    background-size: cover;
+    background-position: center center;
+    min-height: 40vh;
+  }
+}
+
+/* 
+  INSTRUCTIONS FOR USE:
+  ====================
+  
+  1. First, optimize your images:
+     - Desktop: 1920x1080px, ~1MB (IMG_6699_desktop.jpg)
+     - Mobile: 800x600px, ~300KB (IMG_6699_mobile.jpg)
+     - WebP versions for even better compression
+  
+  2. Replace the current background image CSS in style.css with this file's content
+  
+  3. Test on actual mobile devices to ensure the image displays correctly
+  
+  4. For full image visibility on mobile, use background-size: contain
+     For better visual impact, use background-size: cover with adjusted positioning
+*/
